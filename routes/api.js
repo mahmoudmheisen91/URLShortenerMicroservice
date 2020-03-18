@@ -23,4 +23,19 @@ router.post("/new", (req, res, next) => {
   });
 });
 
+// GET Short URL endpoint...
+// GET /api/shorturl/[&amp;index]
+router.get("/:short_url", (req, res, next) => {
+  let short_url = req.params.short_url;
+
+  URL.findOne({ index: short_url }, function(err, urlData) {
+    if (err) return next(err);
+    if (urlData) {
+      res.redirect(urlData.url_link);
+    } else {
+      res.json({ error: "Short URL Not Found" });
+    }
+  });
+});
+
 module.exports = router;
