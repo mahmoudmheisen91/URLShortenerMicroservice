@@ -37,7 +37,9 @@
     </header>
 
     <form method="POST" action="/api/shorturl/new" class="container">
-      <label for="url_link">Enter URL:<code> POST /api/shorturl/new</code></label>
+      <label for="url_link"
+        >Enter URL:<code> POST /api/shorturl/new</code></label
+      >
       <br />
       <input
         type="text"
@@ -54,6 +56,7 @@
         <strong>POST URL: </strong><code>POST /api/shorturl/new</code>
         {"original_url": "www.google.com", "short_url": 1}
       </p>
+      <p><strong>GET All URLs: </strong><code>GET /api/shorturl/urls</code></p>
       <p>
         <strong>GET Short URL: </strong
         ><code>GET /api/shorturl/[&amp;index]</code>

@@ -23,6 +23,15 @@ router.post("/new", (req, res, next) => {
   });
 });
 
+// GET All URL endpoint...
+// GET /api/shorturl/urls
+router.get("/urls", (req, res, next) => {
+  URL.find({}, (err, data) => {
+    if (err) return next(err);
+    res.json(data);
+  });
+});
+
 // GET Short URL endpoint...
 // GET /api/shorturl/[&amp;index]
 router.get("/:short_url", (req, res, next) => {
