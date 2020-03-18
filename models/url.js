@@ -1,13 +1,16 @@
 const mongoose = require("mongoose");
+const shortID = require("shortid");
 
 let Schema = mongoose.Schema;
 let URLSchema = new Schema({
-  url: {
+  url_link: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   index: {
-    type: Number
+    type: String,
+    default: shortID.generate
   }
 });
 

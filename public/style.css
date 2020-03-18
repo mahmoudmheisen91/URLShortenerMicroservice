@@ -45,7 +45,7 @@ header > strong {
   font-weight: bold;
 }
 
-.container > #URL {
+.container > #url_link {
   grid-column: 2 / span 1;
   grid-row: 2 / span 1;
   padding: 10px 12px;
