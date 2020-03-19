@@ -73,6 +73,15 @@ router.get("/urls", (req, res, next) => {
   });
 });
 
+// GET Clear All URL endpoint...
+// GET /api/shorturl/clear
+router.get("/clear", (req, res, next) => {
+  URLink.remove({}, (err, data) => {
+    if (err) return next(err);
+    res.json(data);
+  });
+});
+
 // GET Short URL endpoint...
 // GET /api/shorturl/[&amp;index]
 router.get("/:short_url", (req, res, next) => {
