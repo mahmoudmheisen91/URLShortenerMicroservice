@@ -14,12 +14,25 @@ router.get("/hello", (req, res) => {
 router.post("/new", (req, res, next) => {
   let new_url = new URL(req.body);
 
-  new_url.save((err, urlData) => {
+  URL.findOne({ url_link: new_url.url_link }, (err, urlData) => {
     if (err) return next(err);
-    res.json({
-      original_url: urlData.url_link,
-      short_url: urlData.index
-    });
+
+    // IF url exists, show it:
+    if (urlData) {
+      res.json({
+        original_url: urlData.url_link,
+        short_url: urlData.index
+      });
+    } else {
+      // else save it:
+      new_url.save((err, newUrlData) => {
+        if (err) return next(err);
+        res.json({
+          original_url: newUrlData.url_link,
+          short_url: newUrlData.index
+        });
+      });
+    }
   });
 });
 
