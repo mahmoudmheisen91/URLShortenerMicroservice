@@ -8,12 +8,12 @@ let URLSchema = new Schema({
     required: true,
     unique: true
   },
-  index: {
+  short_url: {
     type: String,
     default: shortID.generate
   }
 });
 
-let URL = mongoose.model("URL", URLSchema);
+let URLink = mongoose.model("URLink", URLSchema);
 
-module.exports = URL;
+module.exports = URLink;
